@@ -1,8 +1,8 @@
 {
-  "name": "front-end-starter",
+  "name": "github-profile-code-challenge",
   "version": "1.1.0",
-  "description": "A starter template repo for 'front-end' students",
-  "main": "index.js",
+  "description": "A simplified replica of my GitHub Profile Page",
+  "main": "index.html",
   "scripts": {
     "start": "browser-sync start --server --files '*.html, *.css, *.js'"
   },
