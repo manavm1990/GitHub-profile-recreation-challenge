@@ -104,3 +104,11 @@ input + img {
   position: absolute;
   top: -9999px;
 }
+
+.is-hidden {
+  display: none;
+}
+
+.is-shown {
+  display: 100%;
+}
