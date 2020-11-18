@@ -10,12 +10,11 @@ body {
 }
 
 nav {
-  align-items: center;
   background-color: #24292e;
-  color: hsla(0, 0%, 100%, 0.7);
-  display: flex;
+}
+
+nav div:first-child {
   height: 2.5rem;
-  justify-content: space-between;
   padding: 2rem 0.5rem;
 }
 
@@ -27,4 +26,54 @@ button {
 
 svg {
   fill: rgb(255, 255, 255);
+}
+
+label,
+input {
+  background: none;
+}
+
+label {
+  border: 1px solid #444d56;
+  border-radius: 0.5rem;
+  margin: 0.75rem 0;
+  padding: 0 0.5rem;
+}
+
+input {
+  border: none;
+  color: white;
+  line-height: 1.5;
+  min-height: 2rem;
+  width: 80vw;
+}
+
+input + img {
+  margin-right: 0.5rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex--column {
+  flex-direction: column;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.screen-reader-text {
+  left: -9999px;
+  position: absolute;
+  top: -9999px;
 }
