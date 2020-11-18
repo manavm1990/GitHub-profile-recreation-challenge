@@ -74,7 +74,9 @@ input {
 }
 
 input + img {
-  margin-right: 0.5rem;
+  left: 0.5rem;
+  position: relative;
+  top: 4px;
 }
 
 .flex {
