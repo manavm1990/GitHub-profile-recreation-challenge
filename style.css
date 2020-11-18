@@ -1,3 +1,7 @@
+svg {
+  fill: rgb(255, 255, 255);
+}
+
 /* System Fonts as used by GitHub */
 body {
   background: #fff;
@@ -11,11 +15,20 @@ body {
 
 nav {
   background-color: #24292e;
+  padding: 0.5rem 1rem;
 }
 
 nav div:first-child {
   height: 2.5rem;
-  padding: 2rem 0.5rem;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
 }
 
 button {
@@ -24,8 +37,21 @@ button {
   outline: none;
 }
 
-svg {
-  fill: rgb(255, 255, 255);
+nav li,
+nav button,
+input {
+  color: white;
+}
+
+nav li,
+nav button {
+  font-weight: bold;
+}
+
+nav li {
+  border-top: 1px solid #444d56;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 0;
 }
 
 label,
@@ -42,7 +68,6 @@ label {
 
 input {
   border: none;
-  color: white;
   line-height: 1.5;
   min-height: 2rem;
   width: 80vw;
