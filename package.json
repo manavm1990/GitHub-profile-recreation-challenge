@@ -35,5 +35,8 @@
     "*.js": "eslint --cache --fix",
     "*.css": "stylelint --fix",
     "*.{js,css,md}": "prettier --write"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0"
   }
 }
