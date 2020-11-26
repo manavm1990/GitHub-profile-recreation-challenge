@@ -1,3 +1,5 @@
+import test from "./api.js";
+
 const dropdown = document.querySelector("#dropdown");
 
 document.querySelector("#toggle-nav").addEventListener("click", () => {
