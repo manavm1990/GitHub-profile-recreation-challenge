@@ -104,6 +104,17 @@
     </nav>
     <main>
       <div id="profile"><div class="loader">Loading...</div></div>
+      <div id="fake-menu">
+        <ul class="flex">
+          <li class="text-center">Overview</li>
+          <li class="text-center">
+            <span class="text-bold">Repositories</span
+            ><span id="total-repos">89</span>
+          </li>
+          <li class="text-center">Projects</li>
+          <li class="text-center">Packages</li>
+        </ul>
+      </div>
     </main>
 
     <template id="template-profile">
@@ -113,7 +124,7 @@
           <span class="text-center"></span>
         </span>
         <figcaption>
-          <h1></h1>
+          <h1 class="text-bold"></h1>
           <h2></h2>
         </figcaption>
       </figure>
