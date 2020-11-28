@@ -73,10 +73,27 @@ input {
   width: 80vw;
 }
 
+img {
+  height: auto;
+  max-width: 100%;
+}
+
 input + img {
   left: 0.5rem;
   position: relative;
   top: 4px;
+}
+
+figure {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  margin: 0 1rem;
+}
+
+figure img {
+  border: solid thin #e1e4e8;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0) 0 0 0 1px;
 }
 
 .flex {
