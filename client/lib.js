@@ -1,5 +1,9 @@
 import api from "./api.js";
 
+const main = document.querySelector("main");
+const templateProfileContent = document.querySelector("#template-profile")
+  .content;
+
 export const activateDropdown = () => {
   const dropdown = document.querySelector("#dropdown");
 
@@ -32,7 +36,7 @@ export const renderUser = () => {
       viewer {
         avatarUrl
         status {
-          emoji
+          emojiHTML
         }
         name
         login
@@ -40,6 +44,25 @@ export const renderUser = () => {
       }
     }`,
   }).then((data) => {
-    console.log(data);
+    const {
+      data: { viewer: user },
+    } = JSON.parse(data);
+    const avatarImg = templateProfileContent.querySelector("#avatar img");
+    const avatarStatus = templateProfileContent.querySelector("#avatar span");
+    const h1 = templateProfileContent.querySelector("h1");
+    const h2 = templateProfileContent.querySelector("h2");
+    const p = templateProfileContent.querySelector("p");
+
+    const profile = main.querySelector("#profile");
+
+    avatarImg.src = user.avatarUrl;
+    avatarImg.alt = "";
+    avatarStatus.innerHTML = user.status.emojiHTML;
+    h1.innerText = user.name;
+    h2.innerText = user.login;
+    p.innerText = user.bio;
+
+    profile.innerHTML = null;
+    profile.appendChild(templateProfileContent);
   });
 };
