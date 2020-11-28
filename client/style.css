@@ -172,6 +172,50 @@ p {
   text-align: center;
 }
 
+/* https://projects.lukehaas.me/css-loaders/ */
+.loader,
+.loader::before,
+.loader::after {
+  animation: loader 1s infinite ease-in-out;
+  background: #000;
+  height: 4rem;
+  width: 1rem;
+}
+.loader {
+  animation-delay: -0.16s;
+  color: #000;
+  margin: 5.5rem auto;
+  position: relative;
+  text-indent: -9999px;
+  transform: translateZ(0);
+}
+.loader::before,
+.loader::after {
+  content: "";
+  position: absolute;
+  top: 0;
+}
+.loader::before {
+  animation-delay: -0.32s;
+  left: -1.5rem;
+}
+.loader::after {
+  left: 1.5rem;
+}
+
+@keyframes loader {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4rem;
+  }
+  40% {
+    box-shadow: 0 -2rem;
+    height: 5rem;
+  }
+}
+
 .is-hidden {
   display: none;
 }
