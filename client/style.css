@@ -91,10 +91,25 @@ figure {
   margin: 0 1rem;
 }
 
-figure img {
+figure img,
+#avatar span {
   border: solid thin #e1e4e8;
   border-radius: 50%;
   box-shadow: rgba(0, 0, 0, 0) 0 0 0 1px;
+}
+
+#avatar {
+  position: relative;
+}
+
+#avatar span {
+  background-color: #fff;
+  height: 24px;
+  left: 48px;
+  position: absolute;
+  text-align: center;
+  top: 48px;
+  width: 24px;
 }
 
 figcaption {
