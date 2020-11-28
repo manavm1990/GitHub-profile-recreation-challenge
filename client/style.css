@@ -15,7 +15,7 @@ body {
 
 nav {
   background-color: #24292e;
-  padding: 0.5rem 1rem;
+  padding: 1rem;
 }
 
 nav div:first-child {
@@ -86,6 +86,7 @@ input + img {
 
 figure {
   display: grid;
+  grid-gap: 1.5rem;
   grid-template-columns: 64px 1fr;
   margin: 0 1rem;
 }
@@ -94,6 +95,28 @@ figure img {
   border: solid thin #e1e4e8;
   border-radius: 50%;
   box-shadow: rgba(0, 0, 0, 0) 0 0 0 1px;
+}
+
+figcaption {
+  padding: 4px 0;
+}
+
+figcaption h1,
+figcaption h2 {
+  margin: 0;
+}
+
+figcaption h1 {
+  font-size: 2em;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+figcaption h2 {
+  color: #586069;
+  font-size: 1.5em;
+  font-weight: 300;
+  line-height: 1.5rem;
 }
 
 .flex {
