@@ -3,6 +3,7 @@ import api from "./api.js";
 const main = document.querySelector("main");
 const templateProfileContent = document.querySelector("#template-profile")
   .content;
+const templateReposContent = document.querySelector("#template-repos").content;
 
 export const activateDropdown = () => {
   const dropdown = document.querySelector("#dropdown");
@@ -16,17 +17,46 @@ export const activateDropdown = () => {
 export const renderRepos = () => {
   api({
     query: `{
-      viewer {
-        name
-        repositories(last: 20) {
-          nodes {
-            name
-          }
-        }
-      }
-  }`,
+  viewer {
+    repositories(ownerAffiliations: OWNER privacy: PUBLIC orderBy: {field: PUSHED_AT, direction: DESC} first: 20) {
+      totalCount
+    }
+  }
+}`,
   }).then((data) => {
-    console.log(data);
+    const {
+      data: {
+        viewer: {
+          repositories: { totalCount },
+        },
+      },
+    } = JSON.parse(data);
+    const repos = main.querySelector("#repos");
+
+    templateReposContent.querySelector("strong").innerText = totalCount;
+
+    // 'template content' must be 'appended' (NOT 'innerHTML')
+    repos.appendChild(templateReposContent);
+  });
+};
+
+// TODO: Is there a way to 'merge' 👇🏾 👆🏾
+export const renderTotalRepos = () => {
+  api({
+    query: `{viewer {
+    repositories(ownerAffiliations: OWNER orderBy: {field: PUSHED_AT, direction: DESC} first: 20) {
+      totalCount
+    }
+  }}`,
+  }).then((data) => {
+    const {
+      data: {
+        viewer: {
+          repositories: { totalCount },
+        },
+      },
+    } = JSON.parse(data);
+    document.querySelector("#total-repos").innerText = totalCount;
   });
 };
 

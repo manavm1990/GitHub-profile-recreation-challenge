@@ -193,6 +193,13 @@ p {
   padding: 1px 0.5rem;
 }
 
+#repos p {
+  border-bottom: 1px solid #e1e4e8;
+  border-top: 1px solid #e1e4e8;
+  margin: 0;
+  padding: 1rem 0;
+}
+
 .flex {
   display: flex;
 }

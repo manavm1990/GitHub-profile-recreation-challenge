@@ -103,21 +103,20 @@
       </div>
     </nav>
     <main>
-      <div id="profile"><div class="loader">Loading...</div></div>
+      <div id="profile"></div>
       <div id="fake-menu">
         <ul class="flex">
           <li class="text-center">Overview</li>
           <li class="text-center">
             <span class="text-bold">Repositories</span
-            ><span id="total-repos">89</span>
+            ><span id="total-repos"></span>
           </li>
           <li class="text-center">Projects</li>
           <li class="text-center">Packages</li>
         </ul>
       </div>
-      <div id="repos">
-        <input type="search" placeholder="Find a repository..." disabled />
-      </div>
+      <input type="search" placeholder="Find a repository..." disabled />
+      <div id="repos"></div>
     </main>
 
     <template id="template-profile">
@@ -132,6 +131,12 @@
         </figcaption>
       </figure>
       <p></p>
+    </template>
+
+    <template id="template-repos">
+      <p>
+        <strong></strong>&nbsp;results for <strong>public</strong> repositories
+      </p>
     </template>
 
     <script src="./scripts.js" type="module"></script>
