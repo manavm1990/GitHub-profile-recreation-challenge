@@ -45,22 +45,20 @@ export const renderUser = () => {
     }`,
   }).then((data) => {
     const {
-      data: { viewer: user },
+      data: {
+        viewer: { avatarUrl, status, name, login, bio },
+      },
     } = JSON.parse(data);
     const avatarImg = templateProfileContent.querySelector("#avatar img");
-    const avatarStatus = templateProfileContent.querySelector("#avatar span");
-    const h1 = templateProfileContent.querySelector("h1");
-    const h2 = templateProfileContent.querySelector("h2");
-    const p = templateProfileContent.querySelector("p");
-
     const profile = main.querySelector("#profile");
 
-    avatarImg.src = user.avatarUrl;
+    avatarImg.src = avatarUrl;
     avatarImg.alt = "";
-    avatarStatus.innerHTML = user.status.emojiHTML;
-    h1.innerText = user.name;
-    h2.innerText = user.login;
-    p.innerText = user.bio;
+    templateProfileContent.querySelector("#avatar span").innerHTML =
+      status.emojiHTML;
+    templateProfileContent.querySelector("h1").innerText = name;
+    templateProfileContent.querySelector("h2").innerText = login;
+    templateProfileContent.querySelector("p").innerText = bio;
 
     profile.innerHTML = null;
     profile.appendChild(templateProfileContent);
