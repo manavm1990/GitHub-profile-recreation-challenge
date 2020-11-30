@@ -6,12 +6,19 @@ const templateProfileContent = document.querySelector("#template-profile")
   .content;
 const templatePublicCount = document.querySelector("#template-count").content;
 const templateRepo = document.querySelector("#template-repo").content;
+const templateTemplate = document.querySelector("#template-template").content;
 
-const renderRepo = ({ name, url }) => {
+const renderRepo = ({ name, url, templateRepository }) => {
   const repoDiv = templateRepo.cloneNode(true);
-  const aTag = repoDiv.querySelector("a");
-  aTag.href = url;
-  aTag.innerText = name;
+  const repoLink = repoDiv.querySelector("a");
+  repoLink.href = url;
+  repoLink.innerText = name;
+
+  if (templateRepository) {
+    const templateH3 = templateTemplate.cloneNode(true);
+    templateH3.querySelector("a").href = templateRepository.url;
+    repoDiv.querySelector(".flex").appendChild(templateH3);
+  }
   repos.appendChild(repoDiv);
 };
 
@@ -44,7 +51,9 @@ export const renderRepos = () => {
       nodes {
         name
         url
-        isTemplate
+        templateRepository {
+          url
+        }
         parent {
           nameWithOwner
         }

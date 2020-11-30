@@ -141,9 +141,11 @@
 
     <template id="template-repo">
       <section>
-        <h2>
-          <a href="" target="_blank" itemprop="name codeRepository"></a>
-        </h2>
+        <div class="flex align-center">
+          <h2 class="text-bold">
+            <a href="" target="_blank" itemprop="name codeRepository"></a>
+          </h2>
+        </div>
         <div class="language">
           <!-- Stupid language circle color 🙄 -->
           <span></span>
@@ -160,6 +162,11 @@
       </section>
     </template>
 
+    <template id="template-template">
+      <h3>
+        <a href="" itemprop="name codeRepository" class="template">Template</a>
+      </h3>
+    </template>
     <template id="template-repos-description"></template>
     <template id="template-repos-stargazers"></template>
     <template id="template-repos-forks"></template>
