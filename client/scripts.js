@@ -3,7 +3,7 @@ import {
   renderRepos,
   renderTotalCount,
   renderUser,
-} from "./lib.js";
+} from "./lib/index.js";
 
 activateDropdown();
 renderUser();

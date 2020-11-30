@@ -1,40 +1,31 @@
-import api from "./api.js";
+import api from "../api.js";
+import renderTemplateLink from "./optional-renders.js";
+import templates from "./templates.js";
+
+export { default as activateDropdown } from "./activate-dropdown.js";
 
 const main = document.querySelector("main");
 const repos = main.querySelector("#repos");
-const templateProfileContent = document.querySelector("#template-profile")
-  .content;
-const templatePublicCount = document.querySelector("#template-count").content;
-const templateRepo = document.querySelector("#template-repo").content;
-const templateTemplate = document.querySelector("#template-template").content;
 
 const renderRepo = ({ name, url, templateRepository }) => {
-  const repoDiv = templateRepo.cloneNode(true);
+  const repoDiv = templates.repo.cloneNode(true);
   const repoLink = repoDiv.querySelector("a");
   repoLink.href = url;
   repoLink.innerText = name;
 
   if (templateRepository) {
-    const templateH3 = templateTemplate.cloneNode(true);
-    templateH3.querySelector("a").href = templateRepository.url;
-    repoDiv.querySelector(".flex").appendChild(templateH3);
+    repoDiv
+      .querySelector(".flex")
+      .appendChild(renderTemplateLink(templateRepository.url));
   }
+
   repos.appendChild(repoDiv);
 };
 
 const renderTotalPublicCount = (count) => {
   const totalPublic = main.querySelector("#total-public");
-  templatePublicCount.querySelector("strong:first-child").innerText = count;
-  totalPublic.appendChild(templatePublicCount);
-};
-
-export const activateDropdown = () => {
-  const dropdown = document.querySelector("#dropdown");
-
-  document.querySelector("#toggle-nav").addEventListener("click", () => {
-    dropdown.classList.replace("is-hidden", "is-shown") ||
-      dropdown.classList.replace("is-shown", "is-hidden");
-  });
+  templates.publicCount.querySelector("strong:first-child").innerText = count;
+  totalPublic.appendChild(templates.publicCount);
 };
 
 export const renderRepos = () => {
@@ -90,12 +81,6 @@ export const renderRepos = () => {
     renderTotalPublicCount(totalCount);
 
     nodes.forEach((node) => renderRepo(node));
-    // const repos = main.querySelector("#repos");
-
-    // templateReposContent.querySelector("strong").innerText = totalCount;
-
-    // // 'template content' must be 'appended' (NOT 'innerHTML')
-    // repos.appendChild(templateReposContent);
   });
 };
 
@@ -146,18 +131,18 @@ export const renderUser = () => {
         viewer: { avatarUrl, status, name, login, bio },
       },
     } = JSON.parse(data);
-    const avatarImg = templateProfileContent.querySelector("#avatar img");
+    const avatarImg = templates.profileContent.querySelector("#avatar img");
     const profile = main.querySelector("#profile");
 
     avatarImg.src = avatarUrl;
     avatarImg.alt = "";
-    templateProfileContent.querySelector("#avatar span").innerHTML =
+    templates.profileContent.querySelector("#avatar span").innerHTML =
       status.emojiHTML;
-    templateProfileContent.querySelector("h1").innerText = name;
-    templateProfileContent.querySelector("h2").innerText = login;
-    templateProfileContent.querySelector("p").innerText = bio;
+    templates.profileContent.querySelector("h1").innerText = name;
+    templates.profileContent.querySelector("h2").innerText = login;
+    templates.profileContent.querySelector("p").innerText = bio;
 
     profile.innerHTML = null;
-    profile.appendChild(templateProfileContent);
+    profile.appendChild(templates.profileContent);
   });
 };
