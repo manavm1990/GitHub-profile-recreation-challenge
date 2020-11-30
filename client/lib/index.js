@@ -3,22 +3,16 @@ import { renderDesc, renderForked } from "./optional-renders.js";
 import templates from "./templates.js";
 
 export { default as activateDropdown } from "./activate-dropdown.js";
+export { default as handleStarBtn } from "./handle-star-btn.js";
 
 const main = document.querySelector("main");
 const repos = main.querySelector("#repos");
 
-const renderRepo = ({
-  name,
-  url,
-  isTemplate,
-  templateRepository,
-  parent,
-  description: desc,
-}) => {
+const renderRepo = ({ name, url, isTemplate, parent, description: desc }) => {
+  const descStar = templates.descBtn.cloneNode(true);
+  const descStarDiv = descStar.querySelector(".desc");
   const repoSection = templates.repo.cloneNode(true).querySelector("section");
   const repoLink = repoSection.querySelector("a");
-  const descStar = templates.descStarBtn.cloneNode(true);
-  const descStarDiv = descStar.querySelector(".desc");
 
   repoLink.href = url;
   repoLink.innerText = name;
@@ -62,27 +56,16 @@ export const renderRepos = () => {
         name
         url
         isTemplate
-        templateRepository {
-          url
-        }
         parent {
           nameWithOwner
         }
         description
-        repositoryTopics(first: 3) {
-          nodes {
-            topic {
-              name
-            }
-          }
-        }
         primaryLanguage {
           color
           name
         }
         stargazerCount
         forkCount
-        # test
         pushedAt
       }
     }
