@@ -18,7 +18,12 @@ export const renderRepos = () => {
   api({
     query: `{
   viewer {
-    repositories(ownerAffiliations: OWNER, privacy: PUBLIC, orderBy: {field: PUSHED_AT, direction: DESC}, first: 20) {
+    repositories(
+      ownerAffiliations: OWNER
+      privacy: PUBLIC
+      orderBy: { field: PUSHED_AT, direction: DESC }
+      first: 20
+    ) {
       totalCount
       nodes {
         name
@@ -46,7 +51,8 @@ export const renderRepos = () => {
       }
     }
   }
-}`,
+}
+`,
   }).then((data) => {
     console.log(JSON.parse(data));
 
@@ -62,11 +68,18 @@ export const renderRepos = () => {
 // TODO: Is there a way to 'merge' 👇🏾 👆🏾
 export const renderTotalCount = () => {
   api({
-    query: `{viewer {
-    repositories(ownerAffiliations: OWNER orderBy: {field: PUSHED_AT, direction: DESC} first: 20) {
+    query: `{
+  viewer {
+    repositories(
+      ownerAffiliations: OWNER
+      orderBy: { field: PUSHED_AT, direction: DESC }
+      first: 20
+    ) {
       totalCount
     }
-  }}`,
+  }
+}
+`,
   }).then((data) => {
     const {
       data: {
@@ -82,16 +95,17 @@ export const renderTotalCount = () => {
 export const renderUser = () => {
   api({
     query: `{
-      viewer {
-        avatarUrl
-        status {
-          emojiHTML
-        }
-        name
-        login
-        bio
-      }
-    }`,
+  viewer {
+    avatarUrl
+    status {
+      emojiHTML
+    }
+    name
+    login
+    bio
+  }
+}
+`,
   }).then((data) => {
     const {
       data: {
