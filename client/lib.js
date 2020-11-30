@@ -3,7 +3,15 @@ import api from "./api.js";
 const main = document.querySelector("main");
 const templateProfileContent = document.querySelector("#template-profile")
   .content;
-const templateReposContent = document.querySelector("#template-count").content;
+const templatePublicCount = document.querySelector("#template-count").content;
+
+const renderTotalPublicCount = (count) => {
+  const totalPublic = main.querySelector("#total-public");
+
+  templatePublicCount.querySelector("strong:first-child").innerText = count;
+
+  totalPublic.appendChild(templatePublicCount);
+};
 
 export const activateDropdown = () => {
   const dropdown = document.querySelector("#dropdown");
@@ -54,8 +62,15 @@ export const renderRepos = () => {
 }
 `,
   }).then((data) => {
-    console.log(JSON.parse(data));
+    const {
+      data: {
+        viewer: {
+          repositories: { totalCount },
+        },
+      },
+    } = JSON.parse(data);
 
+    renderTotalPublicCount(totalCount);
     // const repos = main.querySelector("#repos");
 
     // templateReposContent.querySelector("strong").innerText = totalCount;

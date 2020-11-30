@@ -60,6 +60,13 @@ input {
   border: 1px solid #e1e4e8;
 }
 
+#total-public {
+  border-bottom: 1px solid #e1e4e8;
+  border-top: 1px solid #e1e4e8;
+  margin-top: 0;
+  padding: 1rem 0;
+}
+
 input[disabled] {
   border-radius: 4px;
   line-height: 20px;
