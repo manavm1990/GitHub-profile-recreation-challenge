@@ -60,13 +60,6 @@ input {
   border: 1px solid #e1e4e8;
 }
 
-#total-public {
-  border-bottom: 1px solid #e1e4e8;
-  border-top: 1px solid #e1e4e8;
-  margin-top: 0;
-  padding: 1rem 0;
-}
-
 input[disabled] {
   border-radius: 4px;
   line-height: 20px;
@@ -136,19 +129,6 @@ figure {
   margin: 0;
 }
 
-#avatar {
-  position: relative;
-}
-
-#avatar span {
-  background-color: #fff;
-  height: 24px;
-  left: 48px;
-  position: absolute;
-  top: 48px;
-  width: 24px;
-}
-
 figcaption {
   padding: 4px 0;
 }
@@ -172,6 +152,19 @@ figcaption h2 {
 
 p {
   line-height: 1.5;
+}
+
+#avatar {
+  position: relative;
+}
+
+#avatar span {
+  background-color: #fff;
+  height: 24px;
+  left: 48px;
+  position: absolute;
+  top: 48px;
+  width: 24px;
 }
 
 #fake-menu {
@@ -200,10 +193,10 @@ p {
   padding: 1px 0.5rem;
 }
 
-#repos p {
+#total-public {
   border-bottom: 1px solid #e1e4e8;
   border-top: 1px solid #e1e4e8;
-  margin: 0;
+  margin-top: 0;
   padding: 1rem 0;
 }
 
