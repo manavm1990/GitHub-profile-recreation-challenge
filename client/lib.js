@@ -1,9 +1,19 @@
 import api from "./api.js";
 
 const main = document.querySelector("main");
+const repos = main.querySelector("#repos");
 const templateProfileContent = document.querySelector("#template-profile")
   .content;
 const templatePublicCount = document.querySelector("#template-count").content;
+const templateRepo = document.querySelector("#template-repo").content;
+
+const renderRepo = ({ name, url }) => {
+  const repoDiv = templateRepo.cloneNode(true);
+  const aTag = repoDiv.querySelector("a");
+  aTag.href = url;
+  aTag.innerText = name;
+  repos.appendChild(repoDiv);
+};
 
 const renderTotalPublicCount = (count) => {
   const totalPublic = main.querySelector("#total-public");
@@ -11,9 +21,6 @@ const renderTotalPublicCount = (count) => {
   totalPublic.appendChild(templatePublicCount);
 };
 
-const renderRepo = (node) => {
-  console.log(node);
-};
 export const activateDropdown = () => {
   const dropdown = document.querySelector("#dropdown");
 
