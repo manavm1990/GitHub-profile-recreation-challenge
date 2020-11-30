@@ -1,5 +1,5 @@
 import api from "../api.js";
-import { renderForkedFrom, renderTemplateLink } from "./optional-renders.js";
+import { renderDesc, renderForked } from "./optional-renders.js";
 import templates from "./templates.js";
 
 export { default as activateDropdown } from "./activate-dropdown.js";
@@ -10,26 +10,35 @@ const repos = main.querySelector("#repos");
 const renderRepo = ({
   name,
   url,
+  isTemplate,
   templateRepository,
   parent,
   description: desc,
 }) => {
-  const repoSec = templates.repo.cloneNode(true).querySelector("section");
-  const repoLink = repoSec.querySelector("a");
+  const repoSection = templates.repo.cloneNode(true).querySelector("section");
+  const repoLink = repoSection.querySelector("a");
+  const descStar = templates.descStarBtn.cloneNode(true);
+  const descStarDiv = descStar.querySelector(".desc");
+
   repoLink.href = url;
   repoLink.innerText = name;
 
-  if (templateRepository) {
-    repoSec
+  if (isTemplate) {
+    repoSection
       .querySelector("header")
-      .appendChild(renderTemplateLink(templateRepository.url));
+      .appendChild(templates.template.cloneNode(true));
   }
 
   if (parent) {
-    repoSec.appendChild(renderForkedFrom(parent.nameWithOwner));
+    descStarDiv.appendChild(renderForked(parent.nameWithOwner));
   }
 
-  repos.appendChild(repoSec);
+  if (desc) {
+    descStarDiv.appendChild(renderDesc(desc));
+  }
+
+  repoSection.appendChild(descStar);
+  repos.appendChild(repoSection);
 };
 
 const renderTotalPublicCount = (count) => {
@@ -52,6 +61,7 @@ export const renderRepos = () => {
       nodes {
         name
         url
+        isTemplate
         templateRepository {
           url
         }

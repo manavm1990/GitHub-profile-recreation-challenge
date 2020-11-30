@@ -1,5 +1,6 @@
 import {
   activateDropdown,
+  handleStarBtn,
   renderRepos,
   renderTotalCount,
   renderUser,
@@ -8,4 +9,6 @@ import {
 activateDropdown();
 renderUser();
 renderTotalCount();
+
+// TODO: 'then'...add 👩🏾‍🎤 button handlers
 renderRepos();
