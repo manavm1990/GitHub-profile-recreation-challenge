@@ -13,6 +13,9 @@ const renderTotalPublicCount = (count) => {
   totalPublic.appendChild(templatePublicCount);
 };
 
+const renderRepo = (node) => {
+  console.log(node);
+};
 export const activateDropdown = () => {
   const dropdown = document.querySelector("#dropdown");
 
@@ -65,12 +68,14 @@ export const renderRepos = () => {
     const {
       data: {
         viewer: {
-          repositories: { totalCount },
+          repositories: { totalCount, nodes },
         },
       },
     } = JSON.parse(data);
 
     renderTotalPublicCount(totalCount);
+
+    nodes.forEach((node) => renderRepo(node));
     // const repos = main.querySelector("#repos");
 
     // templateReposContent.querySelector("strong").innerText = totalCount;
