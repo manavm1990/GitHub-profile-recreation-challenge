@@ -5,6 +5,7 @@ export default {
   forks: document.querySelector("#template-repo-forks").content,
   forked: document.querySelector("#template-repo-forked").content,
   language: document.querySelector("#template-repo-language").content,
+  license: document.querySelector("#template-repo-license").content,
   profileContent: document.querySelector("#template-profile").content,
   publicCount: document.querySelector("#template-count").content,
   repo: document.querySelector("#template-repo").content,

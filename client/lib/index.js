@@ -17,6 +17,7 @@ const renderRepo = ({
   primaryLanguage,
   stargazerCount,
   forkCount,
+  licenseInfo,
   pushedAt,
 }) => {
   const descStar = templates.descBtn.cloneNode(true);
@@ -43,7 +44,13 @@ const renderRepo = ({
 
   repoSection.appendChild(descStar);
   repoSection.appendChild(
-    renderDeets({ primaryLanguage, stargazerCount, forkCount, pushedAt })
+    renderDeets({
+      primaryLanguage,
+      stargazerCount,
+      forkCount,
+      licenseInfo,
+      pushedAt,
+    })
   );
 
   repos.appendChild(repoSection);
@@ -80,6 +87,9 @@ export const renderRepos = () => {
         }
         stargazerCount
         forkCount
+        licenseInfo {
+          name
+        }
         pushedAt
       }
     }

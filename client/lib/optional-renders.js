@@ -15,6 +15,12 @@ const renderLanguage = ({ color, name }) => {
   return lang;
 };
 
+const renderLicense = ({ name }) => {
+  const license = templates.license.cloneNode(true);
+  license.querySelector("span").innerText = name;
+  return license;
+};
+
 const renderStarGazers = (count) => {
   const starGazers = templates.stargazers.cloneNode(true);
   starGazers.querySelector("span").innerText = count;
@@ -31,6 +37,7 @@ export const renderDeets = ({
   primaryLanguage,
   stargazerCount,
   forkCount,
+  licenseInfo,
   pushedAt: updated,
 }) => {
   const deets = templates.deets.cloneNode(true).querySelector(".deets");
@@ -45,6 +52,10 @@ export const renderDeets = ({
 
   if (forkCount) {
     deets.appendChild(renderForks(forkCount));
+  }
+
+  if (licenseInfo) {
+    deets.appendChild(renderLicense(licenseInfo));
   }
 
   deets.appendChild(renderUpdated(updated));
