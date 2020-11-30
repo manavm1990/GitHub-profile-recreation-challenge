@@ -1,5 +1,9 @@
 import api from "../api.js";
-import { renderDesc, renderForked } from "./optional-renders.js";
+import {
+  renderDesc,
+  renderForked,
+  renderLanguage,
+} from "./optional-renders.js";
 import templates from "./templates.js";
 
 export { default as activateDropdown } from "./activate-dropdown.js";
@@ -8,7 +12,14 @@ export { default as handleStarBtn } from "./handle-star-btn.js";
 const main = document.querySelector("main");
 const repos = main.querySelector("#repos");
 
-const renderRepo = ({ name, url, isTemplate, parent, description: desc }) => {
+const renderRepo = ({
+  name,
+  url,
+  isTemplate,
+  parent,
+  description: desc,
+  primaryLanguage,
+}) => {
   const descStar = templates.descBtn.cloneNode(true);
   const descStarDiv = descStar.querySelector(".desc");
   const repoSection = templates.repo.cloneNode(true).querySelector("section");
@@ -31,7 +42,13 @@ const renderRepo = ({ name, url, isTemplate, parent, description: desc }) => {
     descStarDiv.appendChild(renderDesc(desc));
   }
 
-  repoSection.appendChild(descStar);
+  if (primaryLanguage) {
+    repoSection.appendChild(descStar);
+    repoSection.appendChild(renderLanguage(primaryLanguage));
+  } else {
+    repoSection.appendChild(descStar);
+  }
+
   repos.appendChild(repoSection);
 };
 

@@ -11,3 +11,11 @@ export const renderForked = (url) => {
   templateSmall.querySelector("span").innerText = url;
   return templateSmall;
 };
+
+export const renderLanguage = ({ color, name }) => {
+  const lang = templates.language.cloneNode(true);
+  const langSpans = lang.querySelectorAll("span");
+  langSpans[0].style.background = color;
+  langSpans[1].innerText = name;
+  return lang;
+};
