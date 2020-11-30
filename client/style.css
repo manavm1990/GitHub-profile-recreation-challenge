@@ -141,6 +141,10 @@ figcaption {
   padding: 4px 0;
 }
 
+p {
+  line-height: 1.5;
+}
+
 figcaption h1,
 h2,
 h3 {
@@ -153,7 +157,8 @@ figcaption h1 {
 }
 
 figcaption h2,
-h3 {
+h3,
+.deets > p {
   color: #586069;
 }
 
@@ -161,10 +166,6 @@ figcaption h2 {
   font-size: 1.5em;
   font-weight: 300;
   line-height: 20px;
-}
-
-p {
-  line-height: 1.5;
 }
 
 a {
@@ -197,6 +198,11 @@ h3 {
 
 .deets {
   margin-top: 1rem;
+}
+
+.deets > p {
+  font-size: 0.8em;
+  margin: 0;
 }
 
 .language-color {

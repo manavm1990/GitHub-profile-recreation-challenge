@@ -1,3 +1,4 @@
+import renderUpdatedTime from "./time.js";
 import templates from "./templates.js";
 
 const renderForks = (count) => {
@@ -20,11 +21,17 @@ const renderStarGazers = (count) => {
   return starGazers;
 };
 
+const renderUpdated = (datetime) => {
+  const updated = templates.updated.cloneNode(true);
+  updated.querySelector("span").innerText = renderUpdatedTime(datetime);
+  return updated;
+};
+
 export const renderDeets = ({
   primaryLanguage,
   stargazerCount,
   forkCount,
-  pushedAt,
+  pushedAt: updated,
 }) => {
   const deets = templates.deets.cloneNode(true).querySelector(".deets");
 
@@ -40,6 +47,7 @@ export const renderDeets = ({
     deets.appendChild(renderForks(forkCount));
   }
 
+  deets.appendChild(renderUpdated(updated));
   return deets;
 };
 

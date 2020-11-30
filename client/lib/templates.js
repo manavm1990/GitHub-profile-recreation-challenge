@@ -10,4 +10,5 @@ export default {
   repo: document.querySelector("#template-repo").content,
   stargazers: document.querySelector("#template-repo-stargazers").content,
   template: document.querySelector("#template-template").content,
+  updated: document.querySelector("#template-updated").content,
 };
