@@ -1,11 +1,11 @@
 import {
   activateDropdown,
   renderRepos,
-  renderTotalRepos,
+  renderTotalCount,
   renderUser,
 } from "./lib.js";
 
 activateDropdown();
 renderUser();
-renderTotalRepos();
+renderTotalCount();
 renderRepos();

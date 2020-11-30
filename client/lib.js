@@ -3,7 +3,7 @@ import api from "./api.js";
 const main = document.querySelector("main");
 const templateProfileContent = document.querySelector("#template-profile")
   .content;
-const templateReposContent = document.querySelector("#template-repos").content;
+const templateReposContent = document.querySelector("#template-count").content;
 
 export const activateDropdown = () => {
   const dropdown = document.querySelector("#dropdown");
@@ -41,7 +41,7 @@ export const renderRepos = () => {
 };
 
 // TODO: Is there a way to 'merge' 👇🏾 👆🏾
-export const renderTotalRepos = () => {
+export const renderTotalCount = () => {
   api({
     query: `{viewer {
     repositories(ownerAffiliations: OWNER orderBy: {field: PUSHED_AT, direction: DESC} first: 20) {
