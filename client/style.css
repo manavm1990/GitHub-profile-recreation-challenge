@@ -130,7 +130,8 @@ figcaption {
 }
 
 figcaption h1,
-figcaption h2 {
+h2,
+h3 {
   margin: 0;
 }
 
@@ -204,7 +205,7 @@ h3 {
 }
 
 #total-public,
-#repos > div {
+#repos > section {
   border-top: 1px solid #e1e4e8;
 }
 
@@ -213,7 +214,7 @@ h3 {
   padding-top: 1rem;
 }
 
-#repos > div {
+#repos section {
   margin: 0;
   padding: 1rem 0;
 }

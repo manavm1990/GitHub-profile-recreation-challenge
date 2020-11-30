@@ -102,6 +102,7 @@
         </ul>
       </div>
     </nav>
+
     <main>
       <div id="profile"></div>
       <div id="fake-menu">
@@ -141,22 +142,11 @@
 
     <template id="template-repo">
       <section>
-        <div class="flex align-center">
+        <header class="flex align-center">
           <h2 class="text-bold">
             <a href="" target="_blank" itemprop="name codeRepository"></a>
           </h2>
-        </div>
-        <div class="language">
-          <!-- Stupid language circle color 🙄 -->
-          <span></span>
-
-          <!-- Language -->
-          <span></span>
-
-          <!-- TODO: Conditionally add 'stargazers' and/or 'forks' -->
-
-          <!-- TODO: Add 'desc' -->
-        </div>
+        </header>
 
         <!-- TODO: Add '👩🏾‍🎤' button -->
       </section>
@@ -167,10 +157,29 @@
         <a href="" itemprop="name codeRepository" class="template">Template</a>
       </h3>
     </template>
-    <template id="template-repos-description"></template>
-    <template id="template-repos-stargazers"></template>
-    <template id="template-repos-forks"></template>
+
     <template id="template-repos-desc"></template>
+
+    <template id="template-repos-desc-forked-from"
+      ><small>Forked from <span></span></small
+    ></template>
+    <template id="template-repos-language">
+      <div class="language">
+        <!-- Stupid language circle color 🙄 -->
+        <span></span>
+
+        <!-- Language -->
+        <span></span>
+
+        <!-- TODO: Conditionally add 'stargazers' and/or 'forks' -->
+
+        <!-- TODO: Add 'desc' -->
+      </div>
+    </template>
+
+    <template id="template-repos-stargazers"></template>
+
+    <template id="template-repos-forks"></template>
 
     <script src="./scripts.js" type="module"></script>
   </body>
