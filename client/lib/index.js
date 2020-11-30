@@ -1,9 +1,5 @@
 import api from "../api.js";
-import {
-  renderDesc,
-  renderForked,
-  renderLanguage,
-} from "./optional-renders.js";
+import { renderDeets, renderDesc, renderForked } from "./optional-renders.js";
 import templates from "./templates.js";
 
 export { default as activateDropdown } from "./activate-dropdown.js";
@@ -19,6 +15,9 @@ const renderRepo = ({
   parent,
   description: desc,
   primaryLanguage,
+  stargazerCount,
+  forkCount,
+  pushedAt,
 }) => {
   const descStar = templates.descBtn.cloneNode(true);
   const descStarDiv = descStar.querySelector(".desc");
@@ -42,12 +41,10 @@ const renderRepo = ({
     descStarDiv.appendChild(renderDesc(desc));
   }
 
-  if (primaryLanguage) {
-    repoSection.appendChild(descStar);
-    repoSection.appendChild(renderLanguage(primaryLanguage));
-  } else {
-    repoSection.appendChild(descStar);
-  }
+  repoSection.appendChild(descStar);
+  repoSection.appendChild(
+    renderDeets({ primaryLanguage, stargazerCount, forkCount, pushedAt })
+  );
 
   repos.appendChild(repoSection);
 };

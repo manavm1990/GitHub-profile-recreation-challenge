@@ -29,6 +29,10 @@ nav {
   padding: 1rem;
 }
 
+.deets div {
+  margin-right: 1rem;
+}
+
 nav div:first-child {
   height: 2.5rem;
 }
@@ -285,6 +289,10 @@ h3 {
 
 .flex--column {
   flex-direction: column;
+}
+
+.flex-inline {
+  display: inline-flex;
 }
 
 .justify-center {
