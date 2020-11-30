@@ -76,11 +76,6 @@ nav input {
   color: white;
 }
 
-nav li,
-nav button {
-  font-weight: bold;
-}
-
 nav li {
   border-top: 1px solid #444d56;
   margin-bottom: 0.5rem;
