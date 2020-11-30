@@ -7,9 +7,7 @@ const templatePublicCount = document.querySelector("#template-count").content;
 
 const renderTotalPublicCount = (count) => {
   const totalPublic = main.querySelector("#total-public");
-
   templatePublicCount.querySelector("strong:first-child").innerText = count;
-
   totalPublic.appendChild(templatePublicCount);
 };
 
