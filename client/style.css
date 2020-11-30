@@ -154,6 +154,10 @@ p {
   line-height: 1.5;
 }
 
+a {
+  text-decoration: none;
+}
+
 #avatar {
   position: relative;
 }
@@ -193,11 +197,23 @@ p {
   padding: 1px 0.5rem;
 }
 
-#total-public {
-  border-bottom: 1px solid #e1e4e8;
+#total-public,
+#repos > div {
   border-top: 1px solid #e1e4e8;
+}
+
+#total-public {
   margin-top: 0;
+  padding-top: 1rem;
+}
+
+#repos > div {
+  margin: 0;
   padding: 1rem 0;
+}
+
+#repos h2 a {
+  color: #0366d6;
 }
 
 .flex {
