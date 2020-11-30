@@ -18,25 +18,44 @@ export const renderRepos = () => {
   api({
     query: `{
   viewer {
-    repositories(ownerAffiliations: OWNER privacy: PUBLIC orderBy: {field: PUSHED_AT, direction: DESC} first: 20) {
+    repositories(ownerAffiliations: OWNER, privacy: PUBLIC, orderBy: {field: PUSHED_AT, direction: DESC}, first: 20) {
       totalCount
+      nodes {
+        name
+        url
+        isTemplate
+        parent {
+          nameWithOwner
+        }
+        description
+        repositoryTopics(first: 3) {
+          nodes {
+            topic {
+              name
+            }
+          }
+        }
+        primaryLanguage {
+          color
+          name
+        }
+        stargazerCount
+        forkCount
+        # test
+        pushedAt
+      }
     }
   }
 }`,
   }).then((data) => {
-    const {
-      data: {
-        viewer: {
-          repositories: { totalCount },
-        },
-      },
-    } = JSON.parse(data);
-    const repos = main.querySelector("#repos");
+    console.log(JSON.parse(data));
 
-    templateReposContent.querySelector("strong").innerText = totalCount;
+    // const repos = main.querySelector("#repos");
 
-    // 'template content' must be 'appended' (NOT 'innerHTML')
-    repos.appendChild(templateReposContent);
+    // templateReposContent.querySelector("strong").innerText = totalCount;
+
+    // // 'template content' must be 'appended' (NOT 'innerHTML')
+    // repos.appendChild(templateReposContent);
   });
 };
 
