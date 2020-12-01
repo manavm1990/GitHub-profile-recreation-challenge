@@ -10,9 +10,7 @@ app.get("/", (_, res) => {
 
 app.use(
   cors({
-    origin:
-      // TODO: Update this for live!
-      "http://localhost:3000",
+    origin: "https://fake-light-github-challenge.netlify.app/",
   })
 );
 
