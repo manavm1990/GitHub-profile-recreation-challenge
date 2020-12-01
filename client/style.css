@@ -6,8 +6,16 @@ nav svg {
   fill: rgb(255, 255, 255);
 }
 
+a {
+  text-decoration: none;
+}
+
 body,
-input[disabled] {
+input[disabled],
+a:link,
+a:visited,
+a:hover,
+a:active {
   color: #24292e;
 }
 
@@ -165,10 +173,6 @@ figcaption h2 {
   font-size: 1.5em;
   font-weight: 300;
   line-height: 20px;
-}
-
-a {
-  text-decoration: none;
 }
 
 h3 {
@@ -371,4 +375,22 @@ h3 {
 
 .is-shown {
   display: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  a {
+    transition: all 0.2s;
+  }
+
+  a:focus,
+  a:hover {
+    color: #0366d6;
+  }
+
+  svg:focus,
+  svg:hover,
+  a:focus svg,
+  a:hover svg {
+    fill: #0366d6;
+  }
 }
