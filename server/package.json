@@ -4,8 +4,8 @@
   "description": "This is just to hide 🔑 and make GraphQL requests to GitHub",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon dist/main.js",
-    "watch": "webpack"
+    "build": "webpack",
+    "start": "nodemon dist/main.js"
   },
   "keywords": [
     "node",
