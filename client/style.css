@@ -457,6 +457,14 @@ h3 {
     margin-top: 2rem;
   }
 
+  main input {
+    max-width: 60%;
+  }
+
+  #avatar {
+    margin-right: 0;
+  }
+
   #avatar span {
     left: 210px;
     top: 210px;
@@ -466,6 +474,11 @@ h3 {
     border-left: none;
     border-right: none;
     border-top: none;
+    width: calc(100vw - 280px);
+  }
+
+  #repos {
+    max-width: 80%;
   }
 
   .align-center--md {
