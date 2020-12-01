@@ -3,7 +3,7 @@ const pluralize = (num) => (num === 1 ? "" : "s");
 export default (dateTime) => {
   // Milliseconds
   const updatedDate = new Date(dateTime);
-  const secs = (Date.now() - updatedDate) / 1000;
+  const secs = Math.round((Date.now() - updatedDate) / 1000);
 
   // Less than a minute
   if (secs < 60) {
