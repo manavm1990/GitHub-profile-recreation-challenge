@@ -78,6 +78,8 @@ export const renderDesc = (desc) => {
 
 export const renderForked = (url) => {
   const templateSmall = templates.forked.cloneNode(true);
-  templateSmall.querySelector("span").innerText = url;
+  const link = templateSmall.querySelector("a");
+  link.href = `https://github.com/${url}`;
+  link.innerText = url;
   return templateSmall;
 };
