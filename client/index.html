@@ -140,7 +140,7 @@
     <template id="template-repo">
       <div class="flex align-center justify-space-between">
         <section>
-          <header class="flex align-center">
+          <header>
             <h2 class="text-bold">
               <a href="" target="_blank" itemprop="name codeRepository"></a>
             </h2>
@@ -184,11 +184,11 @@
     <template id="template-repo-desc"><p></p></template>
 
     <template id="template-repo-deets">
-      <div class="deets flex align-center"></div>
+      <div class="deets"></div>
     </template>
 
     <template id="template-repo-language">
-      <div class="flex align-center">
+      <div class="flex-inline align-center">
         <!-- Stupid language circle color 🙄 -->
         <span class="language-color"></span>
 
@@ -198,7 +198,7 @@
     </template>
 
     <template id="template-repo-stargazers">
-      <a href="" target="_blank" class="flex align-center">
+      <a href="" target="_blank" class="flex-inline align-center">
         <svg
           class="octicon octicon-star mr-1"
           viewBox="0 0 16 16"
@@ -216,7 +216,7 @@
     </template>
 
     <template id="template-repo-forks">
-      <a href="" target="_blank" class="flex align-center">
+      <a href="" target="_blank" class="flex-inline align-center">
         <svg
           aria-label="fork"
           class="octicon octicon-repo-forked"
@@ -235,7 +235,7 @@
     </template>
 
     <template id="template-repo-license">
-      <div class="flex align-center">
+      <div class="flex-inline align-center">
         <svg
           class="octicon octicon-law mr-1"
           viewBox="0 0 16 16"
@@ -254,7 +254,7 @@
     </template>
 
     <template id="template-updated">
-      <p>Updated&nbsp;<span></span></p>
+      <span>Updated&nbsp;<span class="time"></span></span>
     </template>
 
     <script src="./scripts.js" type="module"></script>

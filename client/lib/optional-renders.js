@@ -36,7 +36,7 @@ const renderStarGazers = (count, name) => {
 
 const renderUpdated = (datetime) => {
   const updated = templates.updated.cloneNode(true);
-  updated.querySelector("span").innerText = renderUpdatedTime(datetime);
+  updated.querySelector(".time").innerText = renderUpdatedTime(datetime);
   return updated;
 };
 
