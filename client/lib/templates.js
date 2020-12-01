@@ -1,7 +1,7 @@
 export default {
   deets: document.querySelector("#template-repo-deets").content,
   desc: document.querySelector("#template-repo-desc").content,
-  descBtn: document.querySelector("#template-repo-desc-btn").content,
+  descWrapper: document.querySelector("#template-repo-desc-wrapper").content,
   forks: document.querySelector("#template-repo-forks").content,
   forked: document.querySelector("#template-repo-forked").content,
   language: document.querySelector("#template-repo-language").content,

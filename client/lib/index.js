@@ -21,9 +21,10 @@ const renderRepo = ({
   licenseInfo,
   pushedAt,
 }) => {
-  const descStar = templates.descBtn.cloneNode(true);
-  const descStarDiv = descStar.querySelector(".desc");
-  const repoSection = templates.repo.cloneNode(true).querySelector("section");
+  const descWrapper = templates.descWrapper.cloneNode(true);
+  const descWrapperDiv = descWrapper.querySelector(".desc");
+  const repo = templates.repo.cloneNode(true);
+  const repoSection = repo.querySelector("section");
   const repoLink = repoSection.querySelector("a");
 
   repoLink.href = url;
@@ -36,14 +37,14 @@ const renderRepo = ({
   }
 
   if (parent) {
-    descStarDiv.appendChild(renderForked(parent.nameWithOwner));
+    descWrapperDiv.appendChild(renderForked(parent.nameWithOwner));
   }
 
   if (desc) {
-    descStarDiv.appendChild(renderDesc(desc));
+    descWrapperDiv.appendChild(renderDesc(desc));
   }
 
-  repoSection.appendChild(descStar);
+  repoSection.appendChild(descWrapper);
   repoSection.appendChild(
     renderDeets({
       primaryLanguage,
@@ -55,7 +56,7 @@ const renderRepo = ({
     })
   );
 
-  repos.appendChild(repoSection);
+  repos.appendChild(repo);
 };
 
 const renderTotalPublicCount = (count) => {
