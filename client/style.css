@@ -410,4 +410,57 @@ h3 {
   a:hover svg {
     fill: #0366d6;
   }
+
+  #toggle-nav {
+    display: none;
+  }
+
+  nav {
+    padding: 0 2rem;
+  }
+
+  nav div:first-child {
+    margin-right: 1rem;
+  }
+
+  nav label,
+  nav li {
+    margin-right: 1rem;
+  }
+
+  nav li {
+    border: none;
+    font-weight: 600;
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+
+  nav input {
+    width: 280px;
+  }
+
+  nav input + img {
+    left: 0;
+  }
+
+  nav li:focus,
+  nav li:hover {
+    color: darkgray;
+  }
+
+  .align-center--md {
+    align-items: center;
+  }
+
+  .flex--md {
+    display: flex;
+  }
+
+  .flex-row--md {
+    flex-direction: row;
+  }
+
+  .justify-space-between--md {
+    justify-content: space-between;
+  }
 }
