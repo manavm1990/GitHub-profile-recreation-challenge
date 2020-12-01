@@ -1,5 +1,6 @@
 import api from "../api.js";
 import { renderDeets, renderDesc, renderForked } from "./optional-renders.js";
+import store from "../store.js";
 import templates from "./templates.js";
 
 export { default as activateDropdown } from "./activate-dropdown.js";
@@ -50,6 +51,7 @@ const renderRepo = ({
       forkCount,
       licenseInfo,
       pushedAt,
+      name,
     })
   );
 
@@ -160,6 +162,7 @@ export const renderUser = () => {
         viewer: { avatarUrl, status, name, login, bio },
       },
     } = JSON.parse(data);
+
     const avatarImg = templates.profileContent.querySelector("#avatar img");
     const profile = main.querySelector("#profile");
 
@@ -171,7 +174,10 @@ export const renderUser = () => {
     templates.profileContent.querySelector("h2").innerText = login;
     templates.profileContent.querySelector("p").innerText = bio;
 
+    // Remove 'loading'
     profile.innerHTML = null;
     profile.appendChild(templates.profileContent);
+
+    store.user.setCurrentUser(login);
   });
 };

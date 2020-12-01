@@ -1,8 +1,12 @@
 import renderUpdatedTime from "./time.js";
+import store from "../store.js";
 import templates from "./templates.js";
 
-const renderForks = (count) => {
+const renderForks = (count, repo) => {
   const forks = templates.forks.cloneNode(true);
+  forks.querySelector(
+    "a"
+  ).href = `https://github.com/${store.user.getCurrentUser()}/${repo}/network/members`;
   forks.querySelector("span").innerText = count;
   return forks;
 };
@@ -21,10 +25,13 @@ const renderLicense = ({ name }) => {
   return license;
 };
 
-const renderStarGazers = (count) => {
-  const starGazers = templates.stargazers.cloneNode(true);
-  starGazers.querySelector("span").innerText = count;
-  return starGazers;
+const renderStarGazers = (count, name) => {
+  const stargazers = templates.stargazers.cloneNode(true);
+  stargazers.querySelector(
+    "a"
+  ).href = `https://github.com/${store.user.getCurrentUser()}/${name}/stargazers`;
+  stargazers.querySelector("span").innerText = count;
+  return stargazers;
 };
 
 const renderUpdated = (datetime) => {
@@ -39,6 +46,7 @@ export const renderDeets = ({
   forkCount,
   licenseInfo,
   pushedAt: updated,
+  name,
 }) => {
   const deets = templates.deets.cloneNode(true).querySelector(".deets");
 
@@ -47,11 +55,11 @@ export const renderDeets = ({
   }
 
   if (stargazerCount) {
-    deets.appendChild(renderStarGazers(stargazerCount));
+    deets.appendChild(renderStarGazers(stargazerCount, name));
   }
 
   if (forkCount) {
-    deets.appendChild(renderForks(forkCount));
+    deets.appendChild(renderForks(forkCount, name));
   }
 
   if (licenseInfo) {
