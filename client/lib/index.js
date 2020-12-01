@@ -3,7 +3,7 @@ import { renderDeets, renderDesc, renderForked } from "./optional-renders.js";
 import templates from "./templates.js";
 
 export { default as activateDropdown } from "./activate-dropdown.js";
-export { default as handleStarBtn } from "./handle-star-btn.js";
+export { default as handleStarBtns } from "./handle-star-btns.js";
 
 const main = document.querySelector("main");
 const repos = main.querySelector("#repos");
@@ -62,8 +62,8 @@ const renderTotalPublicCount = (count) => {
   totalPublic.appendChild(templates.publicCount);
 };
 
-export const renderRepos = () => {
-  api({
+export const renderRepos = async () => {
+  const data = await api({
     query: `{
   viewer {
     repositories(
@@ -96,19 +96,21 @@ export const renderRepos = () => {
   }
 }
 `,
-  }).then((data) => {
-    const {
-      data: {
-        viewer: {
-          repositories: { totalCount, nodes },
-        },
-      },
-    } = JSON.parse(data);
-
-    renderTotalPublicCount(totalCount);
-
-    nodes.forEach((node) => renderRepo(node));
   });
+
+  const {
+    data: {
+      viewer: {
+        repositories: { totalCount, nodes },
+      },
+    },
+  } = JSON.parse(data);
+
+  renderTotalPublicCount(totalCount);
+
+  nodes.forEach((node) => renderRepo(node));
+
+  return data;
 };
 
 // TODO: Is there a way to 'merge' 👇🏾 👆🏾
