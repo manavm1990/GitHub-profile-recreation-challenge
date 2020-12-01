@@ -8,13 +8,7 @@ app.get("/", (_, res) => {
   res.send("Hello from Express!");
 });
 
-app.use(
-  cors({
-    origin:
-      // TODO: Update this for live!
-      "http://localhost:3000",
-  })
-);
+app.use(cors());
 
 app.use(express.json());
 
