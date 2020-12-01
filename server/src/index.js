@@ -29,9 +29,4 @@ app.post("/", async ({ body }, res) => {
   }
 });
 
-app.listen(8000, (err) => {
-  if (err) {
-    console.error(err);
-  }
-  console.info("Server 🏃🏾‍♂️. http://localhost:8000");
-});
+app.listen(process.env.PORT || 8000);
