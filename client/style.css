@@ -448,6 +448,26 @@ h3 {
     color: darkgray;
   }
 
+  figure {
+    height: 280px;
+    width: 280px;
+  }
+
+  main {
+    margin-top: 2rem;
+  }
+
+  #avatar span {
+    left: 210px;
+    top: 210px;
+  }
+
+  #fake-menu {
+    border-left: none;
+    border-right: none;
+    border-top: none;
+  }
+
   .align-center--md {
     align-items: center;
   }
@@ -456,8 +476,16 @@ h3 {
     display: flex;
   }
 
+  .flex-column--md {
+    flex-direction: column;
+  }
+
   .flex-row--md {
     flex-direction: row;
+  }
+
+  .float-left--md {
+    float: left;
   }
 
   .justify-space-between--md {

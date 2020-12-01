@@ -71,36 +71,40 @@
     </nav>
 
     <main>
-      <div id="profile"></div>
-      <div id="fake-menu">
-        <ul class="flex">
-          <li class="text-center">Overview</li>
-          <li class="text-center">
-            <span class="text-bold">Repositories</span
-            ><span id="total-repos"></span>
-          </li>
-          <li class="text-center">Projects</li>
-          <li class="text-center">Packages</li>
-        </ul>
+      <div class="flex--md">
+        <div id="profile"></div>
+        <div>
+          <div id="fake-menu">
+            <ul class="flex">
+              <li class="text-center">Overview</li>
+              <li class="text-center">
+                <span class="text-bold">Repositories</span
+                ><span id="total-repos"></span>
+              </li>
+              <li class="text-center">Projects</li>
+              <li class="text-center">Packages</li>
+            </ul>
+          </div>
+          <input type="search" placeholder="Find a repository..." disabled />
+          <p id="total-public"></p>
+          <div id="repos"></div>
+        </div>
       </div>
-      <input type="search" placeholder="Find a repository..." disabled />
-      <p id="total-public"></p>
-      <div id="repos"></div>
     </main>
 
     <!-- ⚠️ Be wary of putting ids in 'templates' -->
     <template id="template-profile">
-      <figure>
-        <span id="avatar">
+      <figure class="flex--md flex-column--md">
+        <span id="avatar" class="float-left--md">
           <img width="260" height="260" />
           <span class="text-center"></span>
         </span>
         <figcaption>
           <h1 class="text-bold"></h1>
           <h2></h2>
+          <p></p>
         </figcaption>
       </figure>
-      <p></p>
     </template>
 
     <template id="template-count">
