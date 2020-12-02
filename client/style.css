@@ -1,3 +1,7 @@
+* {
+  transition: all 0.1s;
+}
+
 svg {
   fill: gray;
 }
