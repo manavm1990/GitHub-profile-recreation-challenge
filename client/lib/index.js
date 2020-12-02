@@ -55,7 +55,6 @@ const renderRepo = ({
       name,
     })
   );
-
   repos.appendChild(repo);
 };
 
@@ -109,6 +108,7 @@ export const renderRepos = async () => {
     },
   } = JSON.parse(data);
 
+  repos.innerHTML = null;
   renderTotalPublicCount(totalCount);
 
   nodes.forEach((node) => renderRepo(node));
