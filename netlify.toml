@@ -1,2 +1,1 @@
-[build]
-  publish = "client/"
+publish = "client/"
